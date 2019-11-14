@@ -19,7 +19,7 @@ At the top of our project directory, run the following:
 You can then view our project in a web browser by putting "http://localhost:3000/" into the address bar
 
 
-Available Scripts
+# Available Scripts
 In the project directory, you can run:
 
 yarn start
