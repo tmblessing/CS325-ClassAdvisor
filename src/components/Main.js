@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./Home";
 import Search from "./Search";
 import Course from "./Course";
 
@@ -12,8 +11,7 @@ import Course from "./Course";
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/search" component={Search} />
+      <Route exact path="/" component={Search} />
       <Route path="/course" component={Course} />
     </Switch>
   </main>
