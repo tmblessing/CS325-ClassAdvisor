@@ -1,24 +1,46 @@
 import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+const headerStyles = makeStyles(theme => ({
+  bar: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    "background-color": "#000000",
+    color : "#FFFFFF"
+  },
+  title: {
+    flexGrow: 1,
+    "margin-right": "10px;"
+  },
+}));
 
 // The Header creates links that can be used to navigate
 // between routes.
-const Header = () => (
-  <header>
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/search">Search</Link>
-        </li>
-        <li>
-          <Link to="/Course">Course</Link>
-        </li>
-      </ul>
-    </nav>
-  </header>
-);
 
-export default Header;
+function HeaderBar() {
+  
+  const classes = headerStyles();
+
+  return (
+    <header className={classes.bar}>
+      <Toolbar >
+          <Typography variant="h4"  className={classes.title}>
+            ClassAdvisor
+          </Typography>
+          <Link to="/"> Home -</Link>
+          <Link to="/search"> Search -</Link>
+          <Link to="/Course"> Course </Link>
+      </Toolbar>
+    </header>
+  );
+};
+
+export default function Header() {
+  return(
+      <HeaderBar />
+  );
+}

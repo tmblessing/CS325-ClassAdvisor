@@ -1,9 +1,64 @@
 import React from "react";
+import { MuiThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Box from '@material-ui/core/Box';
 
-const Search = () => (
-  <div>
-    <h1>Code for search page goes here</h1>
-  </div>
-);
+//Using both makeStyles to make a style sheet and createTheme
+//to make a theme is stupid but I'm not smart enough to rewrite
+//this style sheet in a way that it works as a theme.
+//-Tom
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    "margin-top": "200px",
+    width: '100%',
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+  
+}));
 
-export default Search;
+//All this theme is doing is changing the background color -Tom
+const bgTheme = createMuiTheme({
+  palette: {
+    background: {
+      default: "#119bab"
+    }
+  }
+});
+
+export default function CustomizedInputBase() {
+  const classes = useStyles();
+
+  return (
+    <Container maxWidth="sm">
+      <MuiThemeProvider theme={bgTheme}>
+      <CssBaseline />
+        <Box component="span" m={1}>
+          <Paper component="form" className={classes.root}>
+            <InputBase
+              className={classes.input}
+              placeholder="Search ClassAdvisor"
+              inputProps={{ 'aria-label': 'Search ClassAdvisor' }}
+            />
+            <IconButton type="submit" className={classes.iconButton} aria-label="search">
+              <SearchIcon />
+            </IconButton>
+          </Paper>
+        </Box>
+      </MuiThemeProvider>
+    </Container>
+  );
+}
