@@ -11,7 +11,11 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    
+  },
+  appBar: {
+    "background-color": "#119bab",
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -67,7 +71,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Link to="/" style={{ color: "white" }}>
             <IconButton
