@@ -72,16 +72,16 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Link to="/" style={{ color: "white" }}>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <MenuIcon />
-            </IconButton>
-          </Link>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+            component={Link}
+            to="/"
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             ClassAdvisor
           </Typography>

@@ -11,6 +11,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
+import { Link } from "react-router-dom";
 
 //Using both makeStyles to make a style sheet and createTheme
 //to make a theme is stupid but I'm not smart enough to rewrite
@@ -60,6 +61,8 @@ export default function SearchComponent() {
               type="submit"
               className={classes.iconButton}
               aria-label="search"
+              component={Link}
+              to="/Results"
             >
               <SearchIcon />
             </IconButton>
