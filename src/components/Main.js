@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Search from "./Search";
 import Course from "./Course";
 import Results from "./Results";
+import Dialog from "./CourseDialog";
 
 // The Main component renders one of the provided
 // Routes (provided that one matches). Both the /results
@@ -15,6 +16,7 @@ const Main = () => (
       <Route exact path="/" component={Search} />
       <Route path="/course" component={Course} />
       <Route path="/results" component={Results} />
+      <Route path="/dialog" component={Dialog} />
     </Switch>
   </main>
 );
