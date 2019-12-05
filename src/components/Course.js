@@ -12,7 +12,7 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
-import {Button, Dropdown, DropdownButton, Row, Col} from "react-bootstrap";
+import {ButtonGroup, InputGroup, FormControl, Modal, Button, Dropdown, DropdownButton, Row, Col} from "react-bootstrap";
 import Add from "./Add";
 import { borderBottom } from "@material-ui/system";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
@@ -49,6 +49,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function CourseComponent() {
   const classes = useStyles();
+  const [show, setShow] = React.useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -57,9 +60,187 @@ export default function CourseComponent() {
         <h1>COMPSCI 325: Human-Computer Interaction</h1>
         </Col>
         <Col style={{textAlign: 'center'}}>
-        <Link to="/add"><Button size="lg" variant="info">Add Information</Button></Link>
+        <Button size="lg" variant="info" onClick={handleShow}>Add Information</Button>
         </Col>
       </Row>
+      <Modal size="lg" show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row>
+            <Col style={{textAlign: 'center'}}>
+              <DropdownButton id="dropdown-basic-button" title="Semester Taken" variant="info">
+                <Dropdown.Item href="#/action-1">Fall 2019</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Fall 2018</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Fall 2017</Dropdown.Item>
+              </DropdownButton>
+              </Col>
+              <Col style={{textAlign: 'center'}}>
+              <DropdownButton id="dropdown-basic-button" title="Professor Taken" variant="info">
+                <Dropdown.Item href="#/action-1">Mahyar</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Hudlicka</Dropdown.Item>
+              </DropdownButton>
+            </Col>
+          </Row>
+          <Row style={{marginTop:'20px'}}>
+            <Col style={{textAlign: 'left'}}>
+              <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">Number of Projects</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              </InputGroup>
+            </Col>
+            <Col style={{textAlign: 'right'}}>
+            Attendance Required? &nbsp;
+            <ButtonGroup title="Attendance" aria-label="Basic example">
+              <Button variant="secondary">Yes</Button>
+              <Button variant="secondary">No</Button>
+            </ButtonGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col style={{textAlign: 'left'}}>
+              <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">Number of Quizzes</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              </InputGroup>
+            </Col>
+            <Col style={{textAlign: 'right'}}>
+            Textbook Required? &nbsp;
+            <ButtonGroup title="Attendance" aria-label="Basic example">
+              <Button variant="secondary">Yes</Button>
+              <Button variant="secondary">No</Button>
+            </ButtonGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col style={{textAlign: 'left'}}>
+              <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">Number of Midterms</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              </InputGroup>
+            </Col>
+            <Col style={{textAlign: 'right'}}>
+            Lectures Posted? &nbsp;
+            <ButtonGroup title="Attendance" aria-label="Basic example">
+              <Button variant="secondary">Yes</Button>
+              <Button variant="secondary">No</Button>
+            </ButtonGroup>
+            </Col> 
+          </Row>
+          <Row>
+            <Col style={{textAlign: 'left'}}>
+              <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">Number of Homeworks</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              </InputGroup>
+            </Col>
+            <Col style={{textAlign: 'right'}}>
+            Echo360 Recordings? &nbsp;
+            <ButtonGroup title="Attendance" aria-label="Basic example">
+              <Button variant="secondary">Yes</Button>
+              <Button variant="secondary">No</Button>
+            </ButtonGroup>
+            </Col> 
+          </Row>
+          <Row>
+            <Col style={{textAlign: 'left'}}>
+              <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">Number of Readings</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              </InputGroup>
+            </Col>
+            <Col style={{textAlign: 'right'}}>
+            Final Exam? &nbsp;
+            <ButtonGroup title="Attendance" aria-label="Basic example">
+              <Button variant="secondary">Yes</Button>
+              <Button variant="secondary">No</Button>
+            </ButtonGroup>
+            </Col> 
+          </Row>
+          <Row>
+            <Col style={{textAlign:'center'}}>
+            GenEd Tags: &nbsp;
+              <Button variant="outline-secondary">R1</Button> &nbsp;
+              <Button variant="outline-secondary">R2</Button> &nbsp;
+              <Button variant="outline-secondary">DG</Button> &nbsp;
+              <Button variant="outline-secondary">DU</Button> &nbsp;
+              <Button variant="outline-secondary">PS</Button> &nbsp;
+              <Button variant="outline-secondary">CW</Button> &nbsp;
+              <Button variant="outline-secondary">BS</Button> &nbsp;
+              <Button variant="outline-secondary">AT</Button> &nbsp;
+              <Button variant="outline-secondary">SB</Button> &nbsp;
+              <Button variant="outline-secondary">I</Button> &nbsp;
+              <Button variant="outline-secondary">SI</Button> &nbsp;
+              <Button variant="outline-secondary">AL</Button> &nbsp;
+              <Button variant="outline-secondary">HS</Button>
+            </Col>
+          </Row>
+          <Row style={{marginTop:'20px'}}>
+            <Col style={{textAlign:'center'}}>
+            Tags: &nbsp;
+              <Button variant="outline-secondary">Lecture Heavy</Button> &nbsp;
+              <Button variant="outline-secondary">Reading Heavy</Button> &nbsp;
+              <Button variant="outline-secondary">Discussion</Button> &nbsp;
+              <Button variant="outline-secondary">Pop Quiz</Button> &nbsp;
+              <Button variant="outline-secondary">Papers</Button> &nbsp;
+              <Button variant="outline-secondary">Presentation</Button> &nbsp;
+              <Button variant="outline-secondary">Group Work</Button> &nbsp;
+              <Button variant="outline-secondary">Project Based</Button> &nbsp;
+              <Button variant="outline-secondary">Fun Class</Button> &nbsp;
+              <Button variant="outline-secondary">Boring</Button> &nbsp;
+              <Button variant="outline-secondary">Great Professor</Button> &nbsp;
+              <Button variant="outline-secondary">Bad Professor</Button>
+            </Col>
+          </Row>
+          <Row style={{marginTop:'20px'}}>
+            <Col>
+              <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">Comments</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              </InputGroup>
+            </Col>
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="info" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Row style={{marginTop: '30px', marginLeft: '60px'}}>
         <Col xs={2}>
           <h4>Projects:</h4>

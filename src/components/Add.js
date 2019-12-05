@@ -12,7 +12,8 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import {Modal, Button, Dropdown, DropdownButton, Row, Col} from "react-bootstrap";
+
 
 //Using both makeStyles to make a style sheet and createTheme
 //to make a theme is stupid but I'm not smart enough to rewrite
@@ -36,12 +37,30 @@ const useStyles = makeStyles(theme => ({
 
 export default function Add() {
   const classes = useStyles();
+  const [show, setShow] = React.useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
-    <div>
-      <h1>Class Information</h1>
-      <h2>COMPSCI 325: Human-Computer Interaction</h2>
-    </div>
-    
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
