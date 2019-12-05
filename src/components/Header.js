@@ -14,6 +14,7 @@ function HeaderBar() {
         <Route exact path="/" component={SearchHeader} />
         <Route path="/course" component={DefaultHeader} />
         <Route path="/results" component={DefaultHeader} />
+        <Route path="/add" component={DefaultHeader} />
       </Switch>
     </header>
   );

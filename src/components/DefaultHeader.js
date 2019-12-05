@@ -5,7 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     "background-color": "#119bab"
   },
-  menuButton: {
+  homeButton: {
     marginRight: theme.spacing(2)
   },
   title: {
@@ -74,13 +74,13 @@ export default function SearchAppBar() {
         <Toolbar>
           <IconButton
             edge="start"
-            className={classes.menuButton}
+            className={classes.homeButton}
             color="inherit"
             aria-label="open drawer"
             component={Link}
             to="/"
           >
-            <MenuIcon />
+            <HomeIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             ClassAdvisor

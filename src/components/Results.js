@@ -38,7 +38,7 @@ function Results() {
         <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
             <Typography variant="h6">
-              CS 325: Introduction to human computer interaction
+              COMPSCI 325: Human-Computer Interaction
             </Typography>
             <Divider variant="fullWidth" />
             <Typography component="p">
@@ -53,7 +53,7 @@ function Results() {
               <Chip size="small" label="Project Based" />
               <Chip size="small" label="Readings" />
               <Chip size="small" label="Pop Quiz" />
-              <Chip size="small" label="Teams" />
+              <Chip size="small" label="Group Work" />
             </div>
           </Paper>
         </Link>
@@ -76,18 +76,34 @@ function Results() {
         <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
             <Typography variant="h6">
-              Nursing 325: Maternal-Newborn Nursing
+              DANCE 325: Ballet VI
             </Typography>
             <Divider variant="fullWidth" />
             <Typography component="p">
-              This course introduces the student to the theory and practice of
-              maternal-newborn nursing care for families in the childbearing
-              years, both uncomplicated and high-risk.
+              A continuation of DANCE 324. Taught on two campuses each semester. 
+              Location rotates among Mount Holyoke, Smith, and the University. Placement 
+              in the course is by Five College audition.
             </Typography>
             <div className={classes.tags}>
-              <Chip size="small" label="Lab" />
-              <Chip size="small" label="Practical Component" />
-              <Chip size="small" label="Readings" />
+              <Chip size="small" label="Fun Class" />
+              <Chip size="small" label="Great Professor" />
+            </div>
+          </Paper>
+        </Link>
+        <Link to="/Course" style={{ textDecoration: "none" }}>
+          <Paper className={classes.result}>
+            <Typography variant="h6">
+              EDUC 325: Introduction to Special Education
+            </Typography>
+            <Divider variant="fullWidth" />
+            <Typography component="p">
+              This course is a study of the origin, diagnosis, and treatment of 
+              special needs children with an emphasis on learning, goal planning, 
+              and understanding their intellectual, social, physical and sensory needs.
+            </Typography>
+            <div className={classes.tags}>
+              <Chip size="small" label="Reading Heavy" />
+              <Chip size="small" label="Pop Quiz" />
             </div>
           </Paper>
         </Link>
