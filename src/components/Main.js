@@ -4,6 +4,8 @@ import Search from "./Search";
 import Course from "./Course";
 import Results from "./Results";
 import Dialog from "./CourseDialog";
+import AddComponent from "./Add";
+import Add from "./Add";
 
 // The Main component renders one of the provided
 // Routes (provided that one matches). Both the /results
@@ -17,6 +19,7 @@ const Main = () => (
       <Route path="/course" component={Course} />
       <Route path="/results" component={Results} />
       <Route path="/dialog" component={Dialog} />
+      <Route path="/add" component={Add} />
     </Switch>
   </main>
 );
