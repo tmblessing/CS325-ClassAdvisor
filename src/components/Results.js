@@ -11,6 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
+import ResultCard from "./ResultCard";
 
 const useStyle = makeStyles(theme => ({
   result: {
@@ -36,26 +37,11 @@ function Results() {
       <CssBaseline />
       <Container maxWidth="sm">
         <Link to="/Course" style={{ textDecoration: "none" }}>
-          <Paper className={classes.result}>
-            <Typography variant="h6">
-              COMPSCI 325: Human-Computer Interaction
-            </Typography>
-            <Divider variant="fullWidth" />
-            <Typography component="p">
-              In this course we will examine the important problems in
-              usability, Human Computer Interaction, User Interfaces, and Human
-              Centered Computing. We will examine elements of HCI history, human
-              information processing capabilities, HCI design, user interface
-              prototyping, methods and new applications and directions in Human
-              Computer Interaction.
-            </Typography>
-            <div className={classes.tags}>
-              <Chip size="small" label="Project Based" />
-              <Chip size="small" label="Readings" />
-              <Chip size="small" label="Pop Quiz" />
-              <Chip size="small" label="Group Work" />
-            </div>
-          </Paper>
+          <ResultCard
+            longName="CS325: Intro to Human Computer Interaction"
+            description="In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction."
+            tags={["Project Based", "Readings", "Pop Quiz", "Group Work"]}
+          />
         </Link>
         <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
@@ -75,14 +61,12 @@ function Results() {
         </Link>
         <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
-            <Typography variant="h6">
-              DANCE 325: Ballet VI
-            </Typography>
+            <Typography variant="h6">DANCE 325: Ballet VI</Typography>
             <Divider variant="fullWidth" />
             <Typography component="p">
-              A continuation of DANCE 324. Taught on two campuses each semester. 
-              Location rotates among Mount Holyoke, Smith, and the University. Placement 
-              in the course is by Five College audition.
+              A continuation of DANCE 324. Taught on two campuses each semester.
+              Location rotates among Mount Holyoke, Smith, and the University.
+              Placement in the course is by Five College audition.
             </Typography>
             <div className={classes.tags}>
               <Chip size="small" label="Fun Class" />
@@ -97,9 +81,10 @@ function Results() {
             </Typography>
             <Divider variant="fullWidth" />
             <Typography component="p">
-              This course is a study of the origin, diagnosis, and treatment of 
-              special needs children with an emphasis on learning, goal planning, 
-              and understanding their intellectual, social, physical and sensory needs.
+              This course is a study of the origin, diagnosis, and treatment of
+              special needs children with an emphasis on learning, goal
+              planning, and understanding their intellectual, social, physical
+              and sensory needs.
             </Typography>
             <div className={classes.tags}>
               <Chip size="small" label="Reading Heavy" />
