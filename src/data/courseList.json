@@ -3,12 +3,14 @@
     "code": "CS325",
     "longName": "CS325: Intro to Human Computer Interaction",
     "description": "In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction.",
-    "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"]
+    "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
+    "url": "Course"
   },
   {
     "code": "CS240",
     "longName": "CS240: Reasoning Under Uncertainty",
     "description": "A course about statistics and probability, no calculators allowed. Learn about markov chains and Bayesian networks.",
-    "tags": ["Quizes", "Exams"]
+    "tags": ["Quizes", "Exams"],
+    "url": "Course"
   }
 ]

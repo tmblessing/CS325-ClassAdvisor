@@ -4,8 +4,6 @@ import {
   createMuiTheme,
   makeStyles
 } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
@@ -33,19 +31,23 @@ function ResultCard(props) {
 
   function TagList(props) {
     const tags = props.tags;
-    const tagItems = tags.map(tag => <Chip size="small" label={tag} />);
+    const tagItems = tags.map(tag => (
+      <Chip size="small" key={tag} label={tag} />
+    ));
 
     return <div className={classes.tags}>{tagItems}</div>;
   }
 
   return (
     <React.Fragment>
-      <Paper className={classes.result}>
-        <Typography variant="h6">{props.longName}</Typography>
-        <Divider variant="fullWidth" />
-        <Typography component="p">{props.description}</Typography>
-        <TagList tags={props.tags} />
-      </Paper>
+      <Link to={props.url} style={{ textDecoration: "none" }}>
+        <Paper className={classes.result}>
+          <Typography variant="h6">{props.longName}</Typography>
+          <Divider variant="fullWidth" />
+          <Typography component="p">{props.description}</Typography>
+          <TagList tags={props.tags} />
+        </Paper>
+      </Link>
     </React.Fragment>
   );
 }

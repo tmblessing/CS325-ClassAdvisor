@@ -12,6 +12,7 @@ import Divider from "@material-ui/core/Divider";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
 import ResultCard from "./ResultCard";
+import courseList from "../data/courseList";
 
 const useStyle = makeStyles(theme => ({
   result: {
@@ -36,13 +37,12 @@ function Results() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Link to="/Course" style={{ textDecoration: "none" }}>
-          <ResultCard
-            longName="CS325: Intro to Human Computer Interaction"
-            description="In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction."
-            tags={["Project Based", "Readings", "Pop Quiz", "Group Work"]}
-          />
-        </Link>
+        <ResultCard
+          longName={courseList[0].longName}
+          description="In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction."
+          tags={["Project Based", "Readings", "Pop Quiz", "Group Work"]}
+          url="Course"
+        />
         <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
             <Typography variant="h6">
