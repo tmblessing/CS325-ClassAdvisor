@@ -51,7 +51,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CourseComponent(props) {
-  console.log(props.openCourse.courseNumber);
   const classes = useStyles();
   // for (var i = 0; i < json_data.length; i++) {
   // var obj = json_data[i];
@@ -61,7 +60,15 @@ export default function CourseComponent(props) {
   //     console.log(obj.id);
   //   }
   // }
-  return getPage(props.openCourse, classes);
+
+  //Error catching
+  if (props.openCourse === null) {
+    console.log("No course selected");
+    return <h1>Error 404 Course not found</h1>;
+  } else {
+    console.log(props.openCourse.courseNumber);
+    return getPage(props.openCourse, classes);
+  }
 }
 function getPage(props, classes) {
   console.log("test");

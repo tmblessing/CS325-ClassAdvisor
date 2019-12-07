@@ -13,7 +13,7 @@ import Add from "./Add";
 // with /results or /course. The / route will only match
 // when the pathname is exactly the string "/"
 function Main(props) {
-  const [openCourse, setOpenCourse] = useState();
+  const [openCourse, setOpenCourse] = useState(null);
 
   return (
     <main>
