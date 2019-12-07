@@ -40,14 +40,41 @@ function CourseComment(props) {
 
   return (
     <React.Fragment>
-      <Link to={props.url} style={{ textDecoration: "none" }}>
-        <Paper className={classes.result}>
-          <Typography variant="h6">{props.}</Typography>
-          <Divider variant="fullWidth" />
-          <Typography component="p">{props.description}</Typography>
-          <TagList tags={props.tags} />
-        </Paper>
-      </Link>
+      <row style={{ marginTop: "10px" }}>
+        <col style={{ marginRight: "50px", marginLeft: "50px" }}>
+          <div class="card">
+            <div class="card-body" style={{ background: "#f7f7f7" }}>
+              <row style={{ marginTop: "10px" }}>
+                <col xs={3}>
+                  {" "}
+                  <h5>Semester: {props.semester}</h5>{" "}
+                </col>
+                <col xs={5}>
+                  <div className={classes.tags}>
+                    <TagList tags={props.tags} />
+                  </div>
+                </col>
+                <col xs={4} style={{ textAlign: "right" }}>
+                  <p>
+                    <ThumbUpIcon /> &nbsp; {props.upVotes} &nbsp; &nbsp;{" "}
+                    <ThumbDownIcon /> &nbsp; {props.downVotes}
+                  </p>
+                </col>
+              </row>
+              <row style={{ marginTop: "10px" }}>
+                <col xs={3}>
+                  {" "}
+                  <h5>Professor: {props.professor} </h5>{" "}
+                </col>
+                <col xs={9}>
+                  {" "}
+                  <p>{props.comment}</p>{" "}
+                </col>
+              </row>
+            </div>
+          </div>
+        </col>
+      </row>
     </React.Fragment>
   );
 }
