@@ -71,7 +71,7 @@ function Results(props) {
           courseName={courseList.classes[0].courseName}
           description={courseList.classes[0].description}
           tags={courseList.classes[0].tags}
-          url="Course"
+          setOpenCourse={props.setOpenCourse}
         />
         <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
