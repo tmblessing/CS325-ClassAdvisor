@@ -39,6 +39,9 @@ function Results(props) {
   //return country.name.toLowerCase().indexOf(props.querry.toLowerCase()) !== -1;
   //});
 
+  // This return value needs to be built using data from the JSON file
+  // When a result is clicked, it should redirect the user to the course page - which can be generated using data from JSON
+  // - Suraj
   return (
     <React.Fragment>
       <CssBaseline />
