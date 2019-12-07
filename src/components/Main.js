@@ -12,12 +12,23 @@ import Add from "./Add";
 // and /course routes will match any pathname that starts
 // with /results or /course. The / route will only match
 // when the pathname is exactly the string "/"
-const Main = () => (
+const Main = props => (
   <main>
     <Switch>
-      <Route exact path="/" component={Search} />
+      <Route
+        exact
+        path="/"
+        component={() => (
+          <Search querry={props.querry} setQuerry={props.setQuerry} />
+        )}
+      />
       <Route path="/course" component={Course} />
-      <Route path="/results" component={Results} />
+      <Route
+        path="/results"
+        component={() => (
+          <Results querry={props.querry} setQuerry={props.setQuerry} />
+        )}
+      />
       <Route path="/dialog" component={Dialog} />
       <Route path="/add" component={Add} />
     </Switch>
