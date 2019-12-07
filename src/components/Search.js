@@ -45,7 +45,7 @@ const bgTheme = createMuiTheme({
 
 export default function SearchComponent(props) {
   const classes = useStyles();
-  var querryValue;
+  var querryValue = "";
 
   const handleChange = event => {
     querryValue = event.target.value;
