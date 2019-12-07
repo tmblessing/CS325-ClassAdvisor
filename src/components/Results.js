@@ -53,6 +53,7 @@ function Results(props) {
       -1
     );
   });
+  console.log(results);
   console.log("Search results: " + results[0].courseNumber);
   //const filteredCourses = courseList.filter(result => {
   //return country.name.toLowerCase().indexOf(props.querry.toLowerCase()) !== -1;
@@ -61,6 +62,7 @@ function Results(props) {
   // This return value needs to be built using data from the JSON file
   // When a result is clicked, it should redirect the user to the course page - which can be generated using data from JSON
   // - Suraj
+  console.log(courseList);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -73,7 +75,31 @@ function Results(props) {
           tags={courseList.classes[0].tags}
           setOpenCourse={props.setOpenCourse}
         />
-        <Link to="/Course" style={{ textDecoration: "none" }}>
+        <ResultCard
+          course={courseList.classes[1]}
+          courseNumber={courseList.classes[1].courseNumber}
+          courseName={courseList.classes[1].courseName}
+          description={courseList.classes[1].description}
+          tags={courseList.classes[1].tags}
+          setOpenCourse={props.setOpenCourse}
+        />
+        <ResultCard
+          course={courseList.classes[2]}
+          courseNumber={courseList.classes[2].courseNumber}
+          courseName={courseList.classes[2].courseName}
+          description={courseList.classes[2].description}
+          tags={courseList.classes[2].tags}
+          setOpenCourse={props.setOpenCourse}
+        />
+        <ResultCard
+          course={courseList.classes[3]}
+          courseNumber={courseList.classes[3].courseNumber}
+          courseName={courseList.classes[3].courseName}
+          description={courseList.classes[3].description}
+          tags={courseList.classes[3].tags}
+          setOpenCourse={props.setOpenCourse}
+        />
+        {/* <Link to="/Course" style={{ textDecoration: "none" }}>
           <Paper className={classes.result}>
             <Typography variant="h6">
               CHEM-ENG 325: Thermodynamics II
@@ -121,10 +147,10 @@ function Results(props) {
               <Chip size="small" label="Pop Quiz" />
             </div>
           </Paper>
-        </Link>
+        </Link> */}
       </Container>
     </React.Fragment>
   );
 }
-
+console.log(Results);
 export default Results;

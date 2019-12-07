@@ -51,7 +51,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CourseComponent(props) {
+  console.log("generating page...");
   console.log(props.openCourse.courseNumber);
+
   const classes = useStyles();
   // for (var i = 0; i < json_data.length; i++) {
   // var obj = json_data[i];
@@ -81,7 +83,7 @@ function getPage(props, classes) {
           <h1>
             {props.courseNumber} : {props.courseName}
           </h1>
-          <h2>{props.description}</h2>
+          <h5>{props.description}</h5>
         </Col>
 
         <Col style={{ textAlign: "center" }}>
@@ -94,33 +96,33 @@ function getPage(props, classes) {
       </Row>
       <Row style={{ marginTop: "30px", marginLeft: "60px" }}>
         <Col xs={2}>
-          <h4>Projects:</h4>
-          <h4>Quizzes:</h4>
-          <h4>Midterms:</h4>
-          <h4>Homeworks:</h4>
-          <h4>Readings:</h4>
+          <h5>Projects:</h5>
+          <h5>Quizzes:</h5>
+          <h5>Midterms:</h5>
+          <h5>Homeworks:</h5>
+          <h5>Readings:</h5>
         </Col>
 
         <Col xs={1} style={{ textAlign: "center" }}>
-          <h4>{props.comments[0].projects}</h4>
-          <h4>{props.comments[0].quizzes}</h4>
-          <h4>{props.comments[0].midterms}</h4>
-          <h4>{props.comments[0].homeworks}</h4>
-          <h4>{props.comments[0].readings}</h4>
+          <h5>{props.comments[0].projects}</h5>
+          <h5>{props.comments[0].quizzes}</h5>
+          <h5>{props.comments[0].midterms}</h5>
+          <h5>{props.comments[0].homeworks}</h5>
+          <h5>{props.comments[0].readings}</h5>
         </Col>
         <Col xs={3}>
-          <h4>Attendance Required:</h4>
-          <h4>Textbook Required:</h4>
-          <h4>Lectures Posted:</h4>
-          <h4>Echo360 Recordings:</h4>
-          <h4>Final Exam:</h4>
+          <h5>Attendance Required:</h5>
+          <h5>Textbook Required:</h5>
+          <h5>Lectures Posted:</h5>
+          <h5>Echo360 Recordings:</h5>
+          <h5>Final Exam:</h5>
         </Col>
         <Col xs={1} style={{ textAlign: "center" }}>
-          <h4>{props.comments[0].attendance}</h4>
-          <h4>{props.comments[0].textbook}</h4>
-          <h4>{props.comments[0].lectures}</h4>
-          <h4>{props.comments[0].echo360}</h4>
-          <h4>{props.comments[0].final}</h4>
+          <h5>{props.comments[0].attendance}</h5>
+          <h5>{props.comments[0].textbook}</h5>
+          <h5>{props.comments[0].lectures}</h5>
+          <h5>{props.comments[0].echo360}</h5>
+          <h5>{props.comments[0].final}</h5>
         </Col>
       </Row>
       <Row style={{ marginTop: "30px" }}>

@@ -42,7 +42,17 @@ function ResultCard(props) {
     props.setOpenCourse(props.course);
     console.log("User has selected: " + props.course.courseNumber);
   };
-
+  // console.log("props???");
+  // console.log(props.OpenCourse);
+  function chips(arr) {
+    if (arr.length === 0) {
+      return [];
+    } else {
+      return arr.map(tag => {
+        return <Chip size="small" label={tag} />;
+      });
+    }
+  }
   return (
     <React.Fragment>
       <Link to="/Course" style={{ textDecoration: "none" }}>
@@ -52,7 +62,14 @@ function ResultCard(props) {
           </Typography>
           <Divider variant="fullWidth" />
           <Typography component="p">{props.description}</Typography>
-          <TagList tags={props.tags} />
+          {/* <TagList tags={props.setOpenCourse.tags}></TagList> */}
+          <div className={classes.tags}>
+            {chips(props.tags)}
+            {/* <Chip size="small" label="Project Based" />
+                  <Chip size="small" label="Readings" />
+                  <Chip size="small" label="Pop Quiz" />
+                  <Chip size="small" label="Group Work" /> */}
+          </div>
         </Paper>
       </Link>
     </React.Fragment>
