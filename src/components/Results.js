@@ -30,11 +30,30 @@ const useStyle = makeStyles(theme => ({
   }
 }));
 
+// function resultList(searchQuery) {
+//   const results = courseList.classes.filter(result => {
+//     return (
+//       result.courseNumber.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
+//       -1
+//     );
+//   });
+// }
+// function resultList(results) {
+//   const results = props.tags;
+//   const tagItems = tags.map(tag => <Chip size="small" key={tag} label={tag} />);
+// }
+
 function Results(props) {
   const classes = useStyle();
 
   console.log("Querry was: " + props.querry);
-
+  const results = courseList.classes.filter(result => {
+    return (
+      result.courseNumber.toLowerCase().indexOf(props.querry.toLowerCase()) !==
+      -1
+    );
+  });
+  console.log("Search results: " + results);
   //const filteredCourses = courseList.filter(result => {
   //return country.name.toLowerCase().indexOf(props.querry.toLowerCase()) !== -1;
   //});
@@ -47,9 +66,10 @@ function Results(props) {
       <CssBaseline />
       <Container maxWidth="sm">
         <ResultCard
-          longName={courseList[0].longName}
-          description="In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction."
-          tags={["Project Based", "Readings", "Pop Quiz", "Group Work"]}
+          courseNumber={courseList.classes[0].courseNumber}
+          courseName={courseList.classes[0].courseName}
+          description={courseList.classes[0].description}
+          tags={courseList.classes[0].tags}
           url="Course"
         />
         <Link to="/Course" style={{ textDecoration: "none" }}>
