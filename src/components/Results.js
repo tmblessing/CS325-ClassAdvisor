@@ -30,8 +30,10 @@ const useStyle = makeStyles(theme => ({
   }
 }));
 
-function Results() {
+function Results(props) {
   const classes = useStyle();
+
+  console.log("Querry was: " + props.querry);
 
   return (
     <React.Fragment>
@@ -97,6 +99,4 @@ function Results() {
   );
 }
 
-export default function ResultsPage() {
-  return <Results />;
-}
+export default Results;

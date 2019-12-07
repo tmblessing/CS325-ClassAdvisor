@@ -43,8 +43,14 @@ const bgTheme = createMuiTheme({
   }
 });
 
-export default function SearchComponent() {
+export default function SearchComponent(props) {
   const classes = useStyles();
+  var querryValue;
+
+  const handleChange = event => {
+    //props.setQuerry(event.target.value);
+    console.log("Search entered: " + event.target.value);
+  };
 
   return (
     <Container maxWidth="sm">
@@ -56,6 +62,8 @@ export default function SearchComponent() {
               className={classes.input}
               placeholder="Search ClassAdvisor..."
               inputProps={{ "aria-label": "Search ClassAdvisor..." }}
+              onChange={handleChange}
+              value={querryValue}
             />
             <IconButton
               type="submit"
