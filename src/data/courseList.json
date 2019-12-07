@@ -1,16 +1,97 @@
-[
-  {
-    "code": "CS325",
-    "longName": "CS325: Intro to Human Computer Interaction",
-    "description": "In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction.",
-    "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
-    "url": "Course"
-  },
-  {
-    "code": "CS240",
-    "longName": "CS240: Reasoning Under Uncertainty",
-    "description": "A course about statistics and probability, no calculators allowed. Learn about markov chains and Bayesian networks.",
-    "tags": ["Quizes", "Exams"],
-    "url": "Course"
-  }
-]
+{
+  "classes": [
+    {
+      "courseNumber": "COMPSCI 325",
+      "courseName": "Human-Computer Interaction",
+      "description": "In this course we will examine the important problems in usability, Human Computer Interaction, User Interfaces, and Human Centered Computing. We will examine elements of HCI history, human information processing capabilities, HCI design, user interface prototyping, methods and new applications and directions in Human Computer Interaction.",
+      "semesters": ["Fall 2019", "Fall 2018", "Fall 2017"],
+      "professors": ["Mahyar", "Hudlicka"],
+      "comments": [
+        {
+          "semester": "Fall 2019",
+          "professor": "Mahyar",
+          "projects": 1,
+          "quizzes": 6,
+          "midterms": 1,
+          "homeworks": 5,
+          "readings": 21,
+          "attendance": "No",
+          "textbook": "No",
+          "lectures": "Yes",
+          "echo360": "No",
+          "final": "No",
+          "genEds": [],
+          "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
+          "comment": "Worked through the design thinking process. There is a group web design project instegated in 5 stages: empathize, define, ideate, prototype, and test.",
+          "upVotes": 16,
+          "downVotes": 1
+        },
+        {
+          "semester": "Fall 2018",
+          "professor": "Hudlicka",
+          "projects": 1,
+          "quizzes": 10,
+          "midterms": 1,
+          "homeworks": 10,
+          "readings": 10,
+          "attendance": "Yes",
+          "textbook": "No",
+          "lectures": "Yes",
+          "echo360": "No",
+          "final": "No",
+          "genEds": [],
+          "tags": ["Project Based", "Group Work"],
+          "comment": "Covered different aspects of design, like research and prototyping. Worked on a group design project.",
+          "upVotes": 9,
+          "downVotes": 2
+        },
+        {
+          "semester": "Fall 2017",
+          "professor": "Hudlicka",
+          "projects": 1,
+          "quizzes": 0,
+          "midterms": 2,
+          "homeworks": 7,
+          "readings": 15,
+          "attendance": "Yes",
+          "textbook": "No",
+          "lectures": "Yes",
+          "echo360": "No",
+          "final": "Yes",
+          "genEds": [],
+          "tags": ["Fun Class"],
+          "comment": "Thought it was a cool class.",
+          "upVotes": 0,
+          "downVotes": 3
+        }
+      ]
+    },
+
+    {
+      "courseNumber": "CHEM-ENG 325",
+      "courseName": "Thermodynamics II",
+      "description": "Fundamentals and applications of the thermodynamics of phase and chemical reaction equilibrium; applications to industrial problems.",
+      "semesters": [],
+      "professors": [],
+      "comments": []
+    },
+
+    {
+      "courseNumber": "DANCE 325",
+      "courseName": "Ballet VI",
+      "description": "A continuation of DANCE 324. Taught on two campuses each semester. Location rotates among Mount Holyoke, Smith, and the University. Placement in the course is by Five College audition.",
+      "semesters": [],
+      "professors": [],
+      "comments": []
+    },
+
+    {
+      "courseNumber": "EDUC 325",
+      "courseName": "Introduction to Special Education",
+      "description": "This course is a study of the origin, diagnosis, and treatment of special needs children with an emphasis on learning, goal planning, and understanding their intellectual, social, physical and sensory needs.",
+      "semesters": [],
+      "professors": [],
+      "comments": []
+    }
+  ]
+}
