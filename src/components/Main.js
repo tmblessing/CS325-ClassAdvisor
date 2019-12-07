@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Search from "./Search";
 import Course from "./Course";
@@ -12,27 +12,38 @@ import Add from "./Add";
 // and /course routes will match any pathname that starts
 // with /results or /course. The / route will only match
 // when the pathname is exactly the string "/"
-const Main = props => (
-  <main>
-    <Switch>
-      <Route
-        exact
-        path="/"
-        component={() => (
-          <Search querry={props.querry} setQuerry={props.setQuerry} />
-        )}
-      />
-      <Route path="/course" component={Course} />
-      <Route
-        path="/results"
-        component={() => (
-          <Results querry={props.querry} setQuerry={props.setQuerry} />
-        )}
-      />
-      <Route path="/dialog" component={Dialog} />
-      <Route path="/add" component={Add} />
-    </Switch>
-  </main>
-);
+function Main(props) {
+  const [openCourse, setOpenCourse] = useState();
+
+  return (
+    <main>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          component={() => (
+            <Search querry={props.querry} setQuerry={props.setQuerry} />
+          )}
+        />
+        <Route
+          path="/course"
+          component={() => <Course openCourse={openCourse} />}
+        />
+        <Route
+          path="/results"
+          component={() => (
+            <Results
+              querry={props.querry}
+              setQuerry={props.setQuerry}
+              setOpenCourse={setOpenCourse}
+            />
+          )}
+        />
+        <Route path="/dialog" component={Dialog} />
+        <Route path="/add" component={Add} />
+      </Switch>
+    </main>
+  );
+}
 
 export default Main;

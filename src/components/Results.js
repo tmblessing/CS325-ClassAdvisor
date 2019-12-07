@@ -53,7 +53,7 @@ function Results(props) {
       -1
     );
   });
-  console.log("Search results: " + results);
+  console.log("Search results: " + results[0].courseNumber);
   //const filteredCourses = courseList.filter(result => {
   //return country.name.toLowerCase().indexOf(props.querry.toLowerCase()) !== -1;
   //});
@@ -66,6 +66,7 @@ function Results(props) {
       <CssBaseline />
       <Container maxWidth="sm">
         <ResultCard
+          course={courseList.classes[0]}
           courseNumber={courseList.classes[0].courseNumber}
           courseName={courseList.classes[0].courseName}
           description={courseList.classes[0].description}
