@@ -38,10 +38,15 @@ function ResultCard(props) {
     return <div className={classes.tags}>{tagItems}</div>;
   }
 
+  const handleClick = event => {
+    props.setOpenCourse(props.course);
+    console.log("User has selected: " + props.course.courseNumber);
+  };
+
   return (
     <React.Fragment>
-      <Link to={props.url} style={{ textDecoration: "none" }}>
-        <Paper className={classes.result}>
+      <Link to="/Course" style={{ textDecoration: "none" }}>
+        <Paper className={classes.result} onClick={handleClick}>
           <Typography variant="h6">
             {props.courseNumber}: {props.courseName}
           </Typography>

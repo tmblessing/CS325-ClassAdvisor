@@ -107,7 +107,7 @@ export default function SearchAppBar(props) {
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
-              onUpdate={handleChange}
+              //onUpdate={handleChange}
             />
           </div>
         </Toolbar>
