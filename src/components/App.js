@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header querry={querry} setQuerry={setQuerry} />
       <Main querry={querry} setQuerry={setQuerry} />
     </div>
   );
