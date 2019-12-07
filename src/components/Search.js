@@ -48,8 +48,12 @@ export default function SearchComponent(props) {
   var querryValue;
 
   const handleChange = event => {
-    //props.setQuerry(event.target.value);
-    console.log("Search entered: " + event.target.value);
+    querryValue = event.target.value;
+  };
+
+  const updateQuerry = event => {
+    props.setQuerry(querryValue);
+    console.log("Search entered: " + querryValue);
   };
 
   return (
@@ -63,11 +67,11 @@ export default function SearchComponent(props) {
               placeholder="Search ClassAdvisor..."
               inputProps={{ "aria-label": "Search ClassAdvisor..." }}
               onChange={handleChange}
-              value={querryValue}
             />
             <IconButton
               type="submit"
               className={classes.iconButton}
+              onClick={updateQuerry}
               aria-label="search"
               component={Link}
               to="/Results"

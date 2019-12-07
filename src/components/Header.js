@@ -7,14 +7,35 @@ import DefaultHeader from "./DefaultHeader";
 // The Header creates links that can be used to navigate
 // between routes.
 
-function HeaderBar() {
+function HeaderBar(props) {
   return (
     <header>
       <Switch>
-        <Route exact path="/" component={SearchHeader} />
-        <Route path="/course" component={DefaultHeader} />
-        <Route path="/results" component={DefaultHeader} />
-        <Route path="/add" component={DefaultHeader} />
+        <Route
+          exact
+          path="/"
+          component={() => (
+            <SearchHeader querry={props.querry} setQuerry={props.setQuerry} />
+          )}
+        />
+        <Route
+          path="/course"
+          component={() => (
+            <DefaultHeader querry={props.querry} setQuerry={props.setQuerry} />
+          )}
+        />
+        <Route
+          path="/results"
+          component={() => (
+            <DefaultHeader querry={props.querry} setQuerry={props.setQuerry} />
+          )}
+        />
+        <Route
+          path="/add"
+          component={() => (
+            <DefaultHeader querry={props.querry} setQuerry={props.setQuerry} />
+          )}
+        />
       </Switch>
     </header>
   );

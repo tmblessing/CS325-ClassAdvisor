@@ -65,8 +65,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
+
+  var querryValue;
+
+  const handleChange = event => {
+    querryValue = event.target.value;
+  };
+
+  const updateQuerry = event => {
+    props.setQuerry(querryValue);
+    console.log("Search entered: " + querryValue);
+  };
 
   return (
     <div className={classes.root}>
@@ -96,6 +107,7 @@ export default function SearchAppBar() {
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
+              onUpdate={handleChange}
             />
           </div>
         </Toolbar>

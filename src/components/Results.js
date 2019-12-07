@@ -35,6 +35,10 @@ function Results(props) {
 
   console.log("Querry was: " + props.querry);
 
+  //const filteredCourses = courseList.filter(result => {
+  //return country.name.toLowerCase().indexOf(props.querry.toLowerCase()) !== -1;
+  //});
+
   return (
     <React.Fragment>
       <CssBaseline />
