@@ -42,7 +42,9 @@ function ResultCard(props) {
     <React.Fragment>
       <Link to={props.url} style={{ textDecoration: "none" }}>
         <Paper className={classes.result}>
-          <Typography variant="h6">{props.longName}</Typography>
+          <Typography variant="h6">
+            {props.courseNumber}: {props.courseName}
+          </Typography>
           <Divider variant="fullWidth" />
           <Typography component="p">{props.description}</Typography>
           <TagList tags={props.tags} />
