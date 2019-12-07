@@ -19,6 +19,8 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import Chip from "@material-ui/core/Chip";
 
+import json_data from "../data/courseList.json";
+
 //Using both makeStyles to make a style sheet and createTheme
 //to make a theme is stupid but I'm not smart enough to rewrite
 //this style sheet in a way that it works as a theme.
@@ -49,14 +51,39 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CourseComponent(props) {
+  console.log(props.openCourse.courseNumber);
   const classes = useStyles();
-
+  // for (var i = 0; i < json_data.length; i++) {
+  // var obj = json_data[i];
+  // if (obj.course_number === course_number) {
+  //       return getPage(obj, classes);
+  //     }
+  //     console.log(obj.id);
+  //   }
+  // }
+  return getPage(props.openCourse, classes);
+}
+function getPage(props, classes) {
+  console.log("test");
+  function chips(arr) {
+    if (arr.length === 0) {
+      return [];
+    } else {
+      return arr.map(tag => {
+        return <Chip size="small" label={tag} />;
+      });
+    }
+  }
   return (
     <div>
       <Row style={{ marginTop: "20px" }}>
         <Col xs={9} style={{ textAlign: "center" }}>
-          <h1>COMPSCI 325: Human-Computer Interaction</h1>
+          <h1>
+            {props.courseNumber} : {props.courseName}
+          </h1>
+          <h2>{props.description}</h2>
         </Col>
+
         <Col style={{ textAlign: "center" }}>
           <Link to="/add">
             <Button size="lg" variant="info">
@@ -73,12 +100,13 @@ export default function CourseComponent(props) {
           <h4>Homeworks:</h4>
           <h4>Readings:</h4>
         </Col>
+
         <Col xs={1} style={{ textAlign: "center" }}>
-          <h4>1</h4>
-          <h4>6</h4>
-          <h4>1</h4>
-          <h4>5</h4>
-          <h4>N/A</h4>
+          <h4>{props.comments[0].projects}</h4>
+          <h4>{props.comments[0].quizzes}</h4>
+          <h4>{props.comments[0].midterms}</h4>
+          <h4>{props.comments[0].homeworks}</h4>
+          <h4>{props.comments[0].readings}</h4>
         </Col>
         <Col xs={3}>
           <h4>Attendance Required:</h4>
@@ -88,11 +116,11 @@ export default function CourseComponent(props) {
           <h4>Final Exam:</h4>
         </Col>
         <Col xs={1} style={{ textAlign: "center" }}>
-          <h4>No</h4>
-          <h4>No</h4>
-          <h4>Yes</h4>
-          <h4>No</h4>
-          <h4>No</h4>
+          <h4>{props.comments[0].attendance}</h4>
+          <h4>{props.comments[0].textbook}</h4>
+          <h4>{props.comments[0].lectures}</h4>
+          <h4>{props.comments[0].echo360}</h4>
+          <h4>{props.comments[0].final}</h4>
         </Col>
       </Row>
       <Row style={{ marginTop: "30px" }}>
@@ -113,31 +141,26 @@ export default function CourseComponent(props) {
               <Row style={{ marginTop: "10px" }}>
                 <Col xs={3}>
                   {" "}
-                  <h5>Semester: Fall 2019 </h5>{" "}
+                  <h5>{props.comments[0].semester}</h5>{" "}
                 </Col>
                 <Col xs={9}>
                   <div className={classes.tags}>
-                    <Chip size="small" label="Project Based" />
-                    <Chip size="small" label="Readings" />
-                    <Chip size="small" label="Pop Quiz" />
-                    <Chip size="small" label="Group Work" />
+                    {chips(props.tags)}
+                    {/* <Chip size="small" label="Project Based" />
+                  <Chip size="small" label="Readings" />
+                  <Chip size="small" label="Pop Quiz" />
+                  <Chip size="small" label="Group Work" /> */}
                   </div>
                 </Col>
               </Row>
               <Row style={{ marginTop: "10px" }}>
                 <Col xs={3}>
                   {" "}
-                  <h5>Professor: Mahyar </h5>{" "}
+                  <h5>Professor: {props.comments[0].professor} </h5>{" "}
                 </Col>
                 <Col xs={9}>
                   {" "}
-                  <p>
-                    This class was very helpful in doung all this cool stuff.
-                    This class was very helpful in doung all this cool stuff.
-                    This class was very helpful in doung all this cool stuff.
-                    This class was very helpful in doung all this cool stuff.
-                    This class was very helpful in doung all this cool stuff.{" "}
-                  </p>{" "}
+                  <p>{props.comments[0].comment} </p>{" "}
                 </Col>
               </Row>
             </div>
@@ -209,6 +232,14 @@ export default function CourseComponent(props) {
           </div>
         </Col>
       </Row>
+
+      {/* if(json_data.length > 0){
+      return array.map(function(each){
+      return();
+    });
+  } else {
+    return [];
+} */}
       <Row style={{ marginTop: "10px" }}>
         <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
           <div class="card">
