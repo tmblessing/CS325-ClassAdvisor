@@ -1,0 +1,7 @@
+To Do:
+fix search button on search page (hardcoded)
+create component for course comment
+create search function
+populate search results from JSON
+populate comments for course from JSON
+create working submit comment - save to JSON
