@@ -131,9 +131,7 @@ function getPage(props, classes) {
           <h1>
             {props.courseNumber} : {props.courseName}
           </h1>
-          <h5>{props.description}</h5>
         </Col>
-
         <Col style={{ textAlign: "center" }}>
           <Link to="/add">
             <Button size="lg" variant="info">
@@ -142,8 +140,13 @@ function getPage(props, classes) {
           </Link>
         </Col>
       </Row>
-      <Row style={{ marginTop: "30px", marginLeft: "60px" }}>
-        <Col xs={2}>
+      <Row style={{ marginTop: "20px" }}>
+        <Col xs={{ span: 8, offset: 2 }} style={{ textAlign: "center" }}>
+          <h5>{props.description}</h5>
+        </Col>
+      </Row>
+      <Row style={{ marginTop: "30px", textAlign: "center" }}>
+        <Col xs={{ span: 2, offset: 2 }}>
           <h5>Projects:</h5>
           <h5>Quizzes:</h5>
           <h5>Midterms:</h5>
@@ -158,7 +161,7 @@ function getPage(props, classes) {
           <h5>{props.comments[0].homeworks}</h5>
           <h5>{props.comments[0].readings}</h5>
         </Col>
-        <Col xs={3}>
+        <Col xs={{ span: 3, offset: 1 }}>
           <h5>Attendance Required:</h5>
           <h5>Textbook Required:</h5>
           <h5>Lectures Posted:</h5>
@@ -183,8 +186,9 @@ function getPage(props, classes) {
                 </Col>
                 <Col style={{ textAlign: "right" }}>
                   <h4 class="card-title">
-                    <ThumbUpIcon /> &nbsp; 16 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 1
+                    <ThumbUpIcon /> &nbsp; {props.comments[0].upVotes} &nbsp;
+                    &nbsp; <ThumbDownIcon /> &nbsp;{" "}
+                    {props.comments[0].downVotes}
                   </h4>
                 </Col>
               </Row>
