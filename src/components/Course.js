@@ -18,6 +18,7 @@ import { borderBottom } from "@material-ui/system";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import Chip from "@material-ui/core/Chip";
+import Typography from "@material-ui/core/Typography";
 
 import json_data from "../data/courseList.json";
 
@@ -82,245 +83,250 @@ function getPage(props, classes) {
     }
   }
   return (
-    <div>
-      <Row style={{ marginTop: "20px" }}>
-        <Col xs={9} style={{ textAlign: "center" }}>
-          <h1>
-            {props.courseNumber} : {props.courseName}
-          </h1>
-          <h2>{props.description}</h2>
-        </Col>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Row style={{ marginTop: "30px", marginLeft: "50px" }}>
+          <Col xs={8}>
+            <Typography variant="h4">
+              {props.courseNumber} : {props.courseName}
+            </Typography>
+            <Typography component="p">{props.description}</Typography>
+          </Col>
 
-        <Col style={{ textAlign: "center" }}>
-          <Link to="/add">
-            <Button size="lg" variant="info">
-              Add Information
-            </Button>
-          </Link>
-        </Col>
-      </Row>
-      <Row style={{ marginTop: "30px", marginLeft: "60px" }}>
-        <Col xs={2}>
-          <h4>Projects:</h4>
-          <h4>Quizzes:</h4>
-          <h4>Midterms:</h4>
-          <h4>Homeworks:</h4>
-          <h4>Readings:</h4>
-        </Col>
+          <Col sm="auto" style={{ textAlign: "center" }}>
+            <Link to="/add">
+              <Button size="lg" variant="info">
+                Add Information
+              </Button>
+            </Link>
+          </Col>
+        </Row>
+        <Row style={{ marginTop: "30px", marginLeft: "60px" }}>
+          <Col xs={2}>
+            <Typography variant="h5">Projects:</Typography>
+            <Typography variant="h5">Quizzes:</Typography>
+            <Typography variant="h5">Midterms:</Typography>
+            <Typography variant="h5">Homeworks:</Typography>
+            <Typography variant="h5">Readings:</Typography>
+          </Col>
 
-        <Col xs={1} style={{ textAlign: "center" }}>
-          <h4>{props.comments[0].projects}</h4>
-          <h4>{props.comments[0].quizzes}</h4>
-          <h4>{props.comments[0].midterms}</h4>
-          <h4>{props.comments[0].homeworks}</h4>
-          <h4>{props.comments[0].readings}</h4>
-        </Col>
-        <Col xs={3}>
-          <h4>Attendance Required:</h4>
-          <h4>Textbook Required:</h4>
-          <h4>Lectures Posted:</h4>
-          <h4>Echo360 Recordings:</h4>
-          <h4>Final Exam:</h4>
-        </Col>
-        <Col xs={1} style={{ textAlign: "center" }}>
-          <h4>{props.comments[0].attendance}</h4>
-          <h4>{props.comments[0].textbook}</h4>
-          <h4>{props.comments[0].lectures}</h4>
-          <h4>{props.comments[0].echo360}</h4>
-          <h4>{props.comments[0].final}</h4>
-        </Col>
-      </Row>
-      <Row style={{ marginTop: "30px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row>
-                <Col style={{ textAlign: "left" }}>
-                  <h4 class="card-title">Top Comment</h4>
-                </Col>
-                <Col style={{ textAlign: "right" }}>
-                  <h4 class="card-title">
-                    <ThumbUpIcon /> &nbsp; 16 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 1
-                  </h4>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>{props.comments[0].semester}</h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  <div className={classes.tags}>
-                    {chips(props.tags)}
-                    {/* <Chip size="small" label="Project Based" />
+          <Col xs={1} style={{ textAlign: "center" }}>
+            <Typography variant="h5">{props.comments[0].projects}</Typography>
+            <Typography variant="h5">{props.comments[0].quizzes}</Typography>
+            <Typography variant="h5">{props.comments[0].midterms}</Typography>
+            <Typography variant="h5">{props.comments[0].homeworks}</Typography>
+            <Typography variant="h5">{props.comments[0].readings}</Typography>
+          </Col>
+          <Col xs={3}>
+            <Typography variant="h5">Attendance Required:</Typography>
+            <Typography variant="h5">Textbook Required:</Typography>
+            <Typography variant="h5">Lectures Posted:</Typography>
+            <Typography variant="h5">Echo360 Recordings:</Typography>
+            <Typography variant="h5">Final Exam:</Typography>
+          </Col>
+          <Col xs={1} style={{ textAlign: "center" }}>
+            <Typography variant="h5">{props.comments[0].attendance}</Typography>
+            <Typography variant="h5">{props.comments[0].textbook}</Typography>
+            <Typography variant="h5">{props.comments[0].lectures}</Typography>
+            <Typography variant="h5">{props.comments[0].echo360}</Typography>
+            <Typography variant="h5">{props.comments[0].final}</Typography>
+          </Col>
+        </Row>
+        <Row style={{ marginTop: "30px" }}>
+          <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
+            <div class="card">
+              <div class="card-body" style={{ background: "#f7f7f7" }}>
+                <Row>
+                  <Col style={{ textAlign: "left" }}>
+                    <Typography variant="h5" class="card-title">
+                      Top Comment
+                    </Typography>
+                  </Col>
+                  <Col style={{ textAlign: "right" }}>
+                    <Typography variant="h5" class="card-title">
+                      <ThumbUpIcon /> &nbsp; 16 &nbsp; &nbsp; <ThumbDownIcon />{" "}
+                      &nbsp; 1
+                    </Typography>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>{props.comments[0].semester}</h5>{" "}
+                  </Col>
+                  <Col xs={9}>
+                    <div className={classes.tags}>
+                      {chips(props.tags)}
+                      {/* <Chip size="small" label="Project Based" />
                   <Chip size="small" label="Readings" />
                   <Chip size="small" label="Pop Quiz" />
                   <Chip size="small" label="Group Work" /> */}
-                  </div>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: {props.comments[0].professor} </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>{props.comments[0].comment} </p>{" "}
-                </Col>
-              </Row>
+                    </div>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Professor: {props.comments[0].professor} </h5>{" "}
+                  </Col>
+                  <Col xs={9}>
+                    {" "}
+                    <p>{props.comments[0].comment} </p>{" "}
+                  </Col>
+                </Row>
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
-      <Row style={{ marginTop: "30px" }}>
-        <Col style={{ textAlign: "center" }}>
-          <DropdownButton
-            id="dropdown-basic-button"
-            title="Sort By Semester"
-            variant="info"
-          >
-            <Dropdown.Item href="#/action-1">Fall 2019</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Fall 2018</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Fall 2017</Dropdown.Item>
-          </DropdownButton>
-        </Col>
-        <Col style={{ textAlign: "center" }}>
-          <DropdownButton
-            id="dropdown-basic-button"
-            title="Sort By Professor"
-            variant="info"
-          >
-            <Dropdown.Item href="#/action-1">Mahyar</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Hudlicka</Dropdown.Item>
-          </DropdownButton>
-        </Col>
-      </Row>
-      <Row style={{ marginTop: "30px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Semester: Fall 2019 </h5>{" "}
-                </Col>
-                <Col xs={5}>
-                  <div className={classes.tags}>
-                    <Chip size="small" label="Project Based" />
-                    <Chip size="small" label="Readings" />
-                    <Chip size="small" label="Pop Quiz" />
-                    <Chip size="small" label="Group Work" />
-                  </div>
-                </Col>
-                <Col xs={4} style={{ textAlign: "right" }}>
-                  <p>
-                    <ThumbUpIcon /> &nbsp; 16 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 1
-                  </p>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: Mahyar </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>
-                    Worked through the design thinking process. There is a group
-                    web design project instegated in 5 stages: empathize,
-                    define, ideate, prototype, and est.
-                  </p>{" "}
-                </Col>
-              </Row>
+          </Col>
+        </Row>
+        <Row style={{ marginTop: "30px" }}>
+          <Col style={{ textAlign: "center" }}>
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Sort By Semester"
+              variant="info"
+            >
+              <Dropdown.Item href="#/action-1">Fall 2019</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Fall 2018</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Fall 2017</Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          <Col style={{ textAlign: "center" }}>
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Sort By Professor"
+              variant="info"
+            >
+              <Dropdown.Item href="#/action-1">Mahyar</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Hudlicka</Dropdown.Item>
+            </DropdownButton>
+          </Col>
+        </Row>
+        <Row style={{ marginTop: "30px" }}>
+          <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
+            <div class="card">
+              <div class="card-body" style={{ background: "#f7f7f7" }}>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Semester: Fall 2019 </h5>{" "}
+                  </Col>
+                  <Col xs={5}>
+                    <div className={classes.tags}>
+                      <Chip size="small" label="Project Based" />
+                      <Chip size="small" label="Readings" />
+                      <Chip size="small" label="Pop Quiz" />
+                      <Chip size="small" label="Group Work" />
+                    </div>
+                  </Col>
+                  <Col xs={4} style={{ textAlign: "right" }}>
+                    <p>
+                      <ThumbUpIcon /> &nbsp; 16 &nbsp; &nbsp; <ThumbDownIcon />{" "}
+                      &nbsp; 1
+                    </p>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Professor: Mahyar </h5>{" "}
+                  </Col>
+                  <Col xs={9}>
+                    {" "}
+                    <p>
+                      Worked through the design thinking process. There is a
+                      group web design project instegated in 5 stages:
+                      empathize, define, ideate, prototype, and est.
+                    </p>{" "}
+                  </Col>
+                </Row>
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
 
-      {/* if(json_data.length > 0){
+        {/* if(json_data.length > 0){
       return array.map(function(each){
       return();
     });
   } else {
     return [];
 } */}
-      <Row style={{ marginTop: "10px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Semester: Fall 2018 </h5>{" "}
-                </Col>
-                <Col xs={5}>
-                  <div className={classes.tags}>
-                    <Chip size="small" label="Project Based" />
-                    <Chip size="small" label="Group Work" />
-                  </div>
-                </Col>
-                <Col xs={4} style={{ textAlign: "right" }}>
-                  <p>
-                    <ThumbUpIcon /> &nbsp; 9 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 2
-                  </p>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: Hudlicka </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>
-                    Covered different aspects of design, like research and
-                    prototyping. Worked on a group design project.
-                  </p>{" "}
-                </Col>
-              </Row>
+        <Row style={{ marginTop: "10px" }}>
+          <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
+            <div class="card">
+              <div class="card-body" style={{ background: "#f7f7f7" }}>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Semester: Fall 2018 </h5>{" "}
+                  </Col>
+                  <Col xs={5}>
+                    <div className={classes.tags}>
+                      <Chip size="small" label="Project Based" />
+                      <Chip size="small" label="Group Work" />
+                    </div>
+                  </Col>
+                  <Col xs={4} style={{ textAlign: "right" }}>
+                    <p>
+                      <ThumbUpIcon /> &nbsp; 9 &nbsp; &nbsp; <ThumbDownIcon />{" "}
+                      &nbsp; 2
+                    </p>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Professor: Hudlicka </h5>{" "}
+                  </Col>
+                  <Col xs={9}>
+                    {" "}
+                    <p>
+                      Covered different aspects of design, like research and
+                      prototyping. Worked on a group design project.
+                    </p>{" "}
+                  </Col>
+                </Row>
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
-      <Row style={{ marginTop: "10px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Semester: Fall 2017 </h5>{" "}
-                </Col>
-                <Col xs={5}>
-                  <div className={classes.tags}>
-                    <Chip size="small" label="Fun Class" />
-                  </div>
-                </Col>
-                <Col xs={4} style={{ textAlign: "right" }}>
-                  <p>
-                    <ThumbUpIcon /> &nbsp; 0 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 3
-                  </p>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: Hudlicka </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>Thought it was a cool class.</p>{" "}
-                </Col>
-              </Row>
+          </Col>
+        </Row>
+        <Row style={{ marginTop: "10px" }}>
+          <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
+            <div class="card">
+              <div class="card-body" style={{ background: "#f7f7f7" }}>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Semester: Fall 2017 </h5>{" "}
+                  </Col>
+                  <Col xs={5}>
+                    <div className={classes.tags}>
+                      <Chip size="small" label="Fun Class" />
+                    </div>
+                  </Col>
+                  <Col xs={4} style={{ textAlign: "right" }}>
+                    <p>
+                      <ThumbUpIcon /> &nbsp; 0 &nbsp; &nbsp; <ThumbDownIcon />{" "}
+                      &nbsp; 3
+                    </p>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: "10px" }}>
+                  <Col xs={3}>
+                    {" "}
+                    <h5>Professor: Hudlicka </h5>{" "}
+                  </Col>
+                  <Col xs={9}>
+                    {" "}
+                    <p>Thought it was a cool class.</p>{" "}
+                  </Col>
+                </Row>
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
-    </div>
+          </Col>
+        </Row>
+      </Container>
+    </React.Fragment>
   );
 }

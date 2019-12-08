@@ -7,13 +7,17 @@ import Dialog from "./CourseDialog";
 import AddComponent from "./Add";
 import Add from "./Add";
 
+//Remove this once testing is done
+import courseList from "../data/courseList";
+
 // The Main component renders one of the provided
 // Routes (provided that one matches). Both the /results
 // and /course routes will match any pathname that starts
 // with /results or /course. The / route will only match
 // when the pathname is exactly the string "/"
 function Main(props) {
-  const [openCourse, setOpenCourse] = useState(null);
+  //Set the default back to 'null' after testing is done
+  const [openCourse, setOpenCourse] = useState(courseList.classes[0]);
 
   return (
     <main>
