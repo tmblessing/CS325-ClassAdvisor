@@ -67,6 +67,10 @@ export default function CourseComponent(props) {
 }
 
 function getCommentBox(comm_json, classes) {
+  if (comm_json.length === 0) {
+    console.log("empty array received");
+    return [];
+  }
   function chips(arr) {
     if (arr.length === 0) {
       return [];
@@ -122,6 +126,21 @@ function getPage(props, classes) {
       return arr.map(tag => {
         return <Chip size="small" label={tag} />;
       });
+    }
+  }
+  function filter_comments(elem, dd) {
+    console.log("filtering comments array");
+    console.log(elem);
+    console.log(dd);
+    if (dd === null) {
+      return elem;
+    }
+    if (dd.indexOf(elem.professor) > -1 || dd.indexOf(elem.semester) > -1) {
+      console.log("selected professor " + elem.professor);
+      return elem;
+    } else {
+      console.log("ignored professor " + elem.professor);
+      return [];
     }
   }
   return (
@@ -198,13 +217,7 @@ function getPage(props, classes) {
                   <h5>{props.comments[0].semester}</h5>{" "}
                 </Col>
                 <Col xs={9}>
-                  <div className={classes.tags}>
-                    {chips(props.tags)}
-                    {/* <Chip size="small" label="Project Based" />
-                  <Chip size="small" label="Readings" />
-                  <Chip size="small" label="Pop Quiz" />
-                  <Chip size="small" label="Group Work" /> */}
-                  </div>
+                  <div className={classes.tags}>{chips(props.tags)}</div>
                 </Col>
               </Row>
               <Row style={{ marginTop: "10px" }}>
@@ -244,132 +257,20 @@ function getPage(props, classes) {
           </DropdownButton>
         </Col>
       </Row>
-      {props.comments.map(getCommentBox)}
+      {(props.dd = null)}
+      {
+        //["P1", "P2", "Mahyar"])
+      }
+      {
+        //<p>^^^why is that printing?</p>
+      }
+      {props.comments
+        .map(function(x) {
+          return filter_comments(x, props.dd);
+        })
+        .map(getCommentBox)}
 
-      {/* <Row style={{ marginTop: "30px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Semester: Fall 2019 </h5>{" "}
-                </Col>
-                <Col xs={5}>
-                  <div className={classes.tags}>
-                    <Chip size="small" label="Project Based" />
-                    <Chip size="small" label="Readings" />
-                    <Chip size="small" label="Pop Quiz" />
-                    <Chip size="small" label="Group Work" />
-                  </div>
-                </Col>
-                <Col xs={4} style={{ textAlign: "right" }}>
-                  <p>
-                    <ThumbUpIcon /> &nbsp; 16 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 1
-                  </p>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: Mahyar </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>
-                    Worked through the design thinking process. There is a group
-                    web design project instegated in 5 stages: empathize,
-                    define, ideate, prototype, and est.
-                  </p>{" "}
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </Col>
-      </Row> */}
-
-      {/* if(json_data.length > 0){
-      return array.map(function(each){
-      return();
-    });
-  } else {
-    return [];
-} */}
-      {/* <Row style={{ marginTop: "10px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Semester: Fall 2018 </h5>{" "}
-                </Col>
-                <Col xs={5}>
-                  <div className={classes.tags}>
-                    <Chip size="small" label="Project Based" />
-                    <Chip size="small" label="Group Work" />
-                  </div>
-                </Col>
-                <Col xs={4} style={{ textAlign: "right" }}>
-                  <p>
-                    <ThumbUpIcon /> &nbsp; 9 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 2
-                  </p>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: Hudlicka </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>
-                    Covered different aspects of design, like research and
-                    prototyping. Worked on a group design project.
-                  </p>{" "}
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </Col>
-      </Row> */}
-      {/* <Row style={{ marginTop: "10px" }}>
-        <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
-          <div class="card">
-            <div class="card-body" style={{ background: "#f7f7f7" }}>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Semester: Fall 2017 </h5>{" "}
-                </Col>
-                <Col xs={5}>
-                  <div className={classes.tags}>
-                    <Chip size="small" label="Fun Class" />
-                  </div>
-                </Col>
-                <Col xs={4} style={{ textAlign: "right" }}>
-                  <p>
-                    <ThumbUpIcon /> &nbsp; 0 &nbsp; &nbsp; <ThumbDownIcon />{" "}
-                    &nbsp; 3
-                  </p>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "10px" }}>
-                <Col xs={3}>
-                  {" "}
-                  <h5>Professor: Hudlicka </h5>{" "}
-                </Col>
-                <Col xs={9}>
-                  {" "}
-                  <p>Thought it was a cool class.</p>{" "}
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </Col>
-      </Row> */}
+      {console.log("Comment box complete")}
     </div>
   );
 }
