@@ -113,7 +113,7 @@
           "echo360": "NULL",
           "final": "NULL",
           "genEds": [],
-          "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
+          "tags": ["Chem", "Readings", "Pop Quiz", "Group Work"],
           "comment": "Worked through the design thinking process. There is a group web design project instegated in 5 stages: empathize, define, ideate, prototype, and test.",
           "upVotes": 16,
           "downVotes": 1
@@ -151,7 +151,7 @@
           "echo360": "NULL",
           "final": "NULL",
           "genEds": [],
-          "tags": ["Fun Class"],
+          "tags": ["Chem", "Fun Class"],
           "comment": "Thought it was a cool class.",
           "upVotes": 0,
           "downVotes": 3
@@ -176,7 +176,7 @@
       "echo360": "NULL",
       "final": "NULL",
       "genEds": ["NULL"],
-      "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
+      "tags": ["Dance", "Project Based", "Readings", "Pop Quiz", "Group Work"],
       "comments": [
         {
           "semester": "A",
@@ -192,7 +192,13 @@
           "echo360": "NULL",
           "final": "NULL",
           "genEds": [],
-          "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
+          "tags": [
+            "Dance",
+            "Project Based",
+            "Readings",
+            "Pop Quiz",
+            "Group Work"
+          ],
           "comment": "Worked through the design thinking process. There is a group web design project instegated in 5 stages: empathize, define, ideate, prototype, and test.",
           "upVotes": 16,
           "downVotes": 1
@@ -230,7 +236,7 @@
           "echo360": "NULL",
           "final": "NULL",
           "genEds": [],
-          "tags": ["Fun Class"],
+          "tags": ["Dance", "Fun Class"],
           "comment": "Thought it was a cool class.",
           "upVotes": 0,
           "downVotes": 3
@@ -272,7 +278,13 @@
           "echo360": "NULL",
           "final": "NULL",
           "genEds": [],
-          "tags": ["Project Based", "Readings", "Pop Quiz", "Group Work"],
+          "tags": [
+            "Educ",
+            "Project Based",
+            "Readings",
+            "Pop Quiz",
+            "Group Work"
+          ],
           "comment": "Worked through the design thinking process. There is a group web design project instegated in 5 stages: empathize, define, ideate, prototype, and test.",
           "upVotes": 16,
           "downVotes": 1
@@ -310,7 +322,7 @@
           "echo360": "NULL",
           "final": "NULL",
           "genEds": [],
-          "tags": ["Fun Class"],
+          "tags": ["Educ", "Fun Class"],
           "comment": "Thought it was a cool class.",
           "upVotes": 0,
           "downVotes": 3

@@ -65,6 +65,54 @@ export default function CourseComponent(props) {
   // }
   return getPage(props.openCourse, classes);
 }
+
+function getCommentBox(comm_json, classes) {
+  function chips(arr) {
+    if (arr.length === 0) {
+      return [];
+    } else {
+      return arr.map(tag => {
+        return <Chip size="small" label={tag} />;
+      });
+    }
+  }
+  return (
+    <Row style={{ marginTop: "30px" }}>
+      <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
+        <div class="card">
+          <div class="card-body" style={{ background: "#f7f7f7" }}>
+            <Row style={{ marginTop: "10px" }}>
+              <Col xs={3}>
+                {" "}
+                <h5>Semester: {comm_json.semester}</h5>{" "}
+              </Col>
+              <Col xs={5}>
+                <div className={classes.tags}>{chips(comm_json.tags)}</div>
+              </Col>
+              <Col xs={4} style={{ textAlign: "right" }}>
+                <p>
+                  <ThumbUpIcon /> &nbsp; {comm_json.upVotes} &nbsp; &nbsp;{" "}
+                  <ThumbDownIcon /> &nbsp; {comm_json.downVotes}
+                </p>
+              </Col>
+            </Row>
+            <Row style={{ marginTop: "10px" }}>
+              <Col xs={3}>
+                {" "}
+                <h5>Professor: {comm_json.professor}</h5>{" "}
+              </Col>
+              <Col xs={9}>
+                {" "}
+                <p>{comm_json.comment}</p>{" "}
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </Col>
+    </Row>
+  );
+}
+
 function getPage(props, classes) {
   console.log("test");
   function chips(arr) {
@@ -192,7 +240,9 @@ function getPage(props, classes) {
           </DropdownButton>
         </Col>
       </Row>
-      <Row style={{ marginTop: "30px" }}>
+      {props.comments.map(getCommentBox)}
+
+      {/* <Row style={{ marginTop: "30px" }}>
         <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
           <div class="card">
             <div class="card-body" style={{ background: "#f7f7f7" }}>
@@ -233,7 +283,7 @@ function getPage(props, classes) {
             </div>
           </div>
         </Col>
-      </Row>
+      </Row> */}
 
       {/* if(json_data.length > 0){
       return array.map(function(each){
@@ -242,7 +292,7 @@ function getPage(props, classes) {
   } else {
     return [];
 } */}
-      <Row style={{ marginTop: "10px" }}>
+      {/* <Row style={{ marginTop: "10px" }}>
         <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
           <div class="card">
             <div class="card-body" style={{ background: "#f7f7f7" }}>
@@ -280,8 +330,8 @@ function getPage(props, classes) {
             </div>
           </div>
         </Col>
-      </Row>
-      <Row style={{ marginTop: "10px" }}>
+      </Row> */}
+      {/* <Row style={{ marginTop: "10px" }}>
         <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
           <div class="card">
             <div class="card-body" style={{ background: "#f7f7f7" }}>
@@ -315,7 +365,7 @@ function getPage(props, classes) {
             </div>
           </div>
         </Col>
-      </Row>
+      </Row> */}
     </div>
   );
 }
