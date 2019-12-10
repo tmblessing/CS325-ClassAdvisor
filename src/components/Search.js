@@ -53,6 +53,7 @@ export default function SearchComponent(props) {
 
   const updateQuerry = event => {
     props.setQuerry(querryValue);
+    console.log("Search entered: " + querryValue);
   };
 
   return (
