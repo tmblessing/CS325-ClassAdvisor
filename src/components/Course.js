@@ -44,6 +44,9 @@ const useStyles = makeStyles(theme => ({
   button: {
     alignSelf: "center"
   },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
+  },
   tags: {
     display: "flex",
     justifyContent: "left",
@@ -150,14 +153,22 @@ export default function CourseComponent(props) {
             <Col md={{ offset: 2 }}>
               <Row style={{ marginTop: "20px" }}>
                 <InputLabel>Professor</InputLabel> &nbsp;
-                <Select name="professor" onChange={handleChange}>
+                <Select
+                  name="professor"
+                  onChange={handleChange}
+                  style={{ width: 130 }}
+                >
                   <MenuItem value={"Mahyar"}>Mahyar</MenuItem>
                   <MenuItem value={"Hudlicka"}>Hudlicka</MenuItem>
                 </Select>
               </Row>
               <Row style={{ marginTop: "20px" }}>
                 <InputLabel>Semester</InputLabel> &nbsp;
-                <Select name="semester" onChange={handleChange}>
+                <Select
+                  name="semester"
+                  onChange={handleChange}
+                  style={{ width: 130 }}
+                >
                   <MenuItem value={"Fall 2019"}>Fall 2019</MenuItem>
                   <MenuItem value={"Fall 2018"}>Fall 2018</MenuItem>
                   <MenuItem value={"Fall 2017"}>Fall 2017</MenuItem>
@@ -168,6 +179,7 @@ export default function CourseComponent(props) {
                   label="# of Projects"
                   name="projects"
                   onChange={handleChange}
+                  style={{ width: 200 }}
                 />
               </Row>
               <Row style={{ marginTop: "10px" }}>
@@ -175,6 +187,7 @@ export default function CourseComponent(props) {
                   label="# of Quizzes"
                   name="quizzes"
                   onChange={handleChange}
+                  style={{ width: 200 }}
                 />
               </Row>
               <Row style={{ marginTop: "10px" }}>
@@ -182,6 +195,7 @@ export default function CourseComponent(props) {
                   label="# of Midterms"
                   name="midterms"
                   onChange={handleChange}
+                  style={{ width: 200 }}
                 />
               </Row>
               <Row style={{ marginTop: "10px" }}>
@@ -189,6 +203,7 @@ export default function CourseComponent(props) {
                   label="# of Homeworks"
                   name="homeworks"
                   onChange={handleChange}
+                  style={{ width: 200 }}
                 />
               </Row>
               <Row style={{ marginTop: "10px" }}>
@@ -196,11 +211,12 @@ export default function CourseComponent(props) {
                   label="# of Readings"
                   name="readings"
                   onChange={handleChange}
+                  style={{ width: 200 }}
                 />
               </Row>
             </Col>
-            <Col md={{ offset: 1 }}>
-              <Row style={{ marginTop: "30px" }}>
+            <Col>
+              <Row>
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Attendance Required</FormLabel>
                   <RadioGroup name="attendance" onChange={handleChange} row>
@@ -217,7 +233,7 @@ export default function CourseComponent(props) {
                   </RadioGroup>
                 </FormControl>
               </Row>
-              <Row>
+              <Row style={{ marginTop: "15px" }}>
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Textbook Required</FormLabel>
                   <RadioGroup name="textbook" onChange={handleChange} row>
@@ -234,7 +250,7 @@ export default function CourseComponent(props) {
                   </RadioGroup>
                 </FormControl>
               </Row>
-              <Row>
+              <Row style={{ marginTop: "15px" }}>
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Lectures Posted</FormLabel>
                   <RadioGroup name="lectures" onChange={handleChange} row>
@@ -251,7 +267,7 @@ export default function CourseComponent(props) {
                   </RadioGroup>
                 </FormControl>
               </Row>
-              <Row>
+              <Row style={{ marginTop: "15px" }}>
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Echo360 Recordings</FormLabel>
                   <RadioGroup name="echo" onChange={handleChange} row>
@@ -268,7 +284,7 @@ export default function CourseComponent(props) {
                   </RadioGroup>
                 </FormControl>
               </Row>
-              <Row>
+              <Row style={{ marginTop: "15px" }}>
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Final Exam</FormLabel>
                   <RadioGroup name="final" row>
@@ -287,73 +303,79 @@ export default function CourseComponent(props) {
               </Row>
             </Col>
           </Row>
-          <Row style={{ marginLeft: "20px", marginTop: "20px" }}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Tags</FormLabel>
-              <FormGroup name="tags" onChange={handleChange} row>
-                <FormControlLabel
-                  value="Discussion"
-                  control={<Checkbox color="primary" />}
-                  label="Discussion"
-                />
-                <FormControlLabel
-                  value="Lab"
-                  control={<Checkbox color="primary" />}
-                  label="Lab"
-                />
-                <FormControlLabel
-                  value="Reading Heavy"
-                  control={<Checkbox color="primary" />}
-                  label="Reading Heavy"
-                />
-                <FormControlLabel
-                  value="Lecture Heavy"
-                  control={<Checkbox color="primary" />}
-                  label="Lecture Heavy"
-                />
-                <FormControlLabel
-                  value="Paper"
-                  control={<Checkbox color="primary" />}
-                  label="Paper"
-                />
-                <FormControlLabel
-                  value="Group Work"
-                  control={<Checkbox color="primary" />}
-                  label="Group Work"
-                />
-                <FormControlLabel
-                  value="Project Based"
-                  control={<Checkbox color="primary" />}
-                  label="Project Based"
-                />
-                <FormControlLabel
-                  value="Bad Professor"
-                  control={<Checkbox color="primary" />}
-                  label="Bad Professor"
-                />
-                <FormControlLabel
-                  value="Great Professor"
-                  control={<Checkbox color="primary" />}
-                  label="Great Professor"
-                />
-                <FormControlLabel
-                  value="Fun Class"
-                  control={<Checkbox color="primary" />}
-                  label="Fun Class"
-                />
-                <FormControlLabel
-                  value="Boring"
-                  control={<Checkbox color="primary" />}
-                  label="Boring"
-                />
-              </FormGroup>
-            </FormControl>
+          <Row style={{ marginTop: "30px" }}>
+            <Col style={{ textAlign: "center" }}>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">Tags</FormLabel>
+                <FormGroup name="tags" onChange={handleChange} row>
+                  <FormControlLabel
+                    value="Discussion"
+                    control={<Checkbox color="primary" />}
+                    label="Discussion"
+                  />
+                  <FormControlLabel
+                    value="Lab"
+                    control={<Checkbox color="primary" />}
+                    label="Lab"
+                  />
+                  <FormControlLabel
+                    value="Reading Heavy"
+                    control={<Checkbox color="primary" />}
+                    label="Reading Heavy"
+                  />
+                  <FormControlLabel
+                    value="Lecture Heavy"
+                    control={<Checkbox color="primary" />}
+                    label="Lecture Heavy"
+                  />
+                  <FormControlLabel
+                    value="Paper"
+                    control={<Checkbox color="primary" />}
+                    label="Paper"
+                  />
+                  <FormControlLabel
+                    value="Group Work"
+                    control={<Checkbox color="primary" />}
+                    label="Group Work"
+                  />
+                  <FormControlLabel
+                    value="Project Based"
+                    control={<Checkbox color="primary" />}
+                    label="Project Based"
+                  />
+                  <FormControlLabel
+                    value="Bad Professor"
+                    control={<Checkbox color="primary" />}
+                    label="Bad Professor"
+                  />
+                  <FormControlLabel
+                    value="Great Professor"
+                    control={<Checkbox color="primary" />}
+                    label="Great Professor"
+                  />
+                  <FormControlLabel
+                    value="Fun Class"
+                    control={<Checkbox color="primary" />}
+                    label="Fun Class"
+                  />
+                  <FormControlLabel
+                    value="Boring"
+                    control={<Checkbox color="primary" />}
+                    label="Boring"
+                  />
+                </FormGroup>
+              </FormControl>
+            </Col>
           </Row>
           <Row>
-            <FormControl fullWidth>
-              <InputLabel>Comment</InputLabel>
-              <Input name="comment" onChange={handleChange} />
-            </FormControl>
+            <Col style={{ textAlign: "center" }}>
+              <TextField
+                label="Comment"
+                name="comment"
+                onChange={handleChange}
+                style={{ width: 700 }}
+              />
+            </Col>
           </Row>
         </Modal.Body>
         <Modal.Footer>
