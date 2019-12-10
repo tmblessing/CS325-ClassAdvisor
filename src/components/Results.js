@@ -57,7 +57,7 @@ function Results(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="sm">
         {results.map(result => (
           <ResultCard
             course={result}
