@@ -26,28 +26,15 @@ const useStyles = makeStyles(theme => ({
       display: "block"
     }
   },
-  search: {
+  home: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
-    },
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
       width: "auto"
     }
-  },
-  searchIcon: {
-    width: theme.spacing(7),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
   },
   inputRoot: {
     color: "inherit"
@@ -83,32 +70,20 @@ export default function SearchAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.homeButton}
-            color="inherit"
-            aria-label="open drawer"
-            component={Link}
-            to="/"
-          >
-            <HomeIcon />
-          </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             ClassAdvisor
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ "aria-label": "search" }}
-              //onUpdate={handleChange}
-            />
+          <div className={classes.home}>
+            <IconButton
+              edge="start"
+              className={classes.homeButton}
+              color="inherit"
+              aria-label="open drawer"
+              component={Link}
+              to="/"
+            >
+              <HomeIcon />
+            </IconButton>
           </div>
         </Toolbar>
       </AppBar>

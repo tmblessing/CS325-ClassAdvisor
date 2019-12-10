@@ -4,8 +4,6 @@ import Search from "./Search";
 import Course from "./Course";
 import Results from "./Results";
 import Dialog from "./CourseDialog";
-import AddComponent from "./Add";
-import Add from "./Add";
 
 // The Main component renders one of the provided
 // Routes (provided that one matches). Both the /results
@@ -40,7 +38,6 @@ function Main(props) {
           )}
         />
         <Route path="/dialog" component={Dialog} />
-        <Route path="/add" component={Add} />
       </Switch>
     </main>
   );

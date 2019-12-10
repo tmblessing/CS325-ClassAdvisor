@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Image from 'react-bootstrap/Image'
 
 const headerStyles = makeStyles(theme => ({
   bar: {
@@ -33,7 +32,6 @@ function HeaderBar() {
         <Typography variant="h3" className={classes.title}>
           ClassAdvisor
         </Typography>
-        <Image style={{width: 70, height: 60}} src="/img/comment.png" fluid/>
       </Toolbar>
     </AppBar>
   );
