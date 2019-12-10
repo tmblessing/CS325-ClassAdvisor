@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MuiThemeProvider,
   createMuiTheme,
@@ -12,13 +12,30 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
-import { Button, Dropdown, DropdownButton, Row, Col } from "react-bootstrap";
-import Add from "./Add";
+import {
+  Modal,
+  Button,
+  Dropdown,
+  DropdownButton,
+  Row,
+  Col
+} from "react-bootstrap";
 import { borderBottom } from "@material-ui/system";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import Chip from "@material-ui/core/Chip";
-
+import TextField from "@material-ui/core/TextField";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormGroup from "@material-ui/core/FormGroup";
 import json_data from "../data/courseList.json";
 
 //Using both makeStyles to make a style sheet and createTheme
@@ -51,18 +68,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CourseComponent(props) {
-  console.log("generating page...");
-  console.log(props.openCourse.courseNumber);
-
   const classes = useStyles();
-  // for (var i = 0; i < json_data.length; i++) {
-  // var obj = json_data[i];
-  // if (obj.course_number === course_number) {
-  //       return getPage(obj, classes);
-  //     }
-  //     console.log(obj.id);
-  //   }
-  // }
   return getPage(props.openCourse, classes);
 }
 
@@ -80,6 +86,7 @@ function getCommentBox(comm_json, classes) {
       });
     }
   }
+
   return (
     <Row style={{ marginTop: "30px" }}>
       <Col style={{ marginRight: "50px", marginLeft: "50px" }}>
@@ -118,7 +125,6 @@ function getCommentBox(comm_json, classes) {
 }
 
 function getPage(props, classes) {
-  console.log("test");
   function chips(arr) {
     if (arr.length === 0) {
       return [];
@@ -143,22 +149,265 @@ function getPage(props, classes) {
       return [];
     }
   }
+
+  const handleChange = event => {
+    values[event.target.name] = event.target.value;
+  };
+
+  function closeModal() {
+    window.alert(
+      "Thank for for your comment. It has been submitted for review."
+    );
+    console.log(values);
+    setShow(false);
+  }
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => closeModal();
+  const handleShow = () => setShow(true);
+  var values = {};
+  var index = json_data.classes.findIndex(
+    obj => obj.courseNumber === props.courseNumber
+  );
+
   return (
     <div>
       <Row style={{ marginTop: "20px" }}>
         <Col xs={9} style={{ textAlign: "center" }}>
           <h1>
-            {props.courseNumber} : {props.courseName}
+            {props.courseNumber}: {props.courseName}
           </h1>
         </Col>
         <Col style={{ textAlign: "center" }}>
-          <Link to="/add">
-            <Button size="lg" variant="info">
-              Add Information
-            </Button>
-          </Link>
+          <Button size="lg" variant="info" onClick={handleShow}>
+            Add Information
+          </Button>
         </Col>
       </Row>
+      <Modal size="lg" show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row>
+            <Col md={{ offset: 2 }}>
+              <Row style={{ marginTop: "20px" }}>
+                <InputLabel>Professor</InputLabel> &nbsp;
+                <Select name="professor" onChange={handleChange}>
+                  <MenuItem value={"Mahyar"}>Mahyar</MenuItem>
+                  <MenuItem value={"Hudlicka"}>Hudlicka</MenuItem>
+                </Select>
+              </Row>
+              <Row style={{ marginTop: "20px" }}>
+                <InputLabel>Semester</InputLabel> &nbsp;
+                <Select name="semester" onChange={handleChange}>
+                  <MenuItem value={"Fall 2019"}>Fall 2019</MenuItem>
+                  <MenuItem value={"Fall 2018"}>Fall 2018</MenuItem>
+                  <MenuItem value={"Fall 2017"}>Fall 2017</MenuItem>
+                </Select>
+              </Row>
+              <Row style={{ marginTop: "20px" }}>
+                <TextField
+                  label="# of Projects"
+                  name="projects"
+                  onChange={handleChange}
+                />
+              </Row>
+              <Row style={{ marginTop: "10px" }}>
+                <TextField
+                  label="# of Quizzes"
+                  name="quizzes"
+                  onChange={handleChange}
+                />
+              </Row>
+              <Row style={{ marginTop: "10px" }}>
+                <TextField
+                  label="# of Midterms"
+                  name="midterms"
+                  onChange={handleChange}
+                />
+              </Row>
+              <Row style={{ marginTop: "10px" }}>
+                <TextField
+                  label="# of Homeworks"
+                  name="homeworks"
+                  onChange={handleChange}
+                />
+              </Row>
+              <Row style={{ marginTop: "10px" }}>
+                <TextField
+                  label="# of Readings"
+                  name="readings"
+                  onChange={handleChange}
+                />
+              </Row>
+            </Col>
+            <Col md={{ offset: 1 }}>
+              <Row style={{ marginTop: "30px" }}>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Attendance Required</FormLabel>
+                  <RadioGroup name="attendance" onChange={handleChange} row>
+                    <FormControlLabel
+                      value="Yes"
+                      label="Yes"
+                      control={<Radio color="primary" />}
+                    />
+                    <FormControlLabel
+                      value="No"
+                      label="No"
+                      control={<Radio color="primary" />}
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Row>
+              <Row>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Textbook Required</FormLabel>
+                  <RadioGroup name="textbook" onChange={handleChange} row>
+                    <FormControlLabel
+                      value="Yes"
+                      label="Yes"
+                      control={<Radio color="primary" />}
+                    />
+                    <FormControlLabel
+                      value="No"
+                      label="No"
+                      control={<Radio color="primary" />}
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Row>
+              <Row>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Lectures Posted</FormLabel>
+                  <RadioGroup name="lectures" onChange={handleChange} row>
+                    <FormControlLabel
+                      value="Yes"
+                      label="Yes"
+                      control={<Radio color="primary" />}
+                    />
+                    <FormControlLabel
+                      value="No"
+                      label="No"
+                      control={<Radio color="primary" />}
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Row>
+              <Row>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Echo360 Recordings</FormLabel>
+                  <RadioGroup name="echo" onChange={handleChange} row>
+                    <FormControlLabel
+                      value="Yes"
+                      label="Yes"
+                      control={<Radio color="primary" />}
+                    />
+                    <FormControlLabel
+                      value="No"
+                      label="No"
+                      control={<Radio color="primary" />}
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Row>
+              <Row>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Final Exam</FormLabel>
+                  <RadioGroup name="final" row>
+                    <FormControlLabel
+                      value="Yes"
+                      label="Yes"
+                      control={<Radio color="primary" />}
+                    />
+                    <FormControlLabel
+                      value="No"
+                      label="No"
+                      control={<Radio color="primary" />}
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Row>
+            </Col>
+          </Row>
+          <Row style={{ marginLeft: "20px", marginTop: "20px" }}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Tags</FormLabel>
+              <FormGroup name="tags" onChange={handleChange} row>
+                <FormControlLabel
+                  value="Discussion"
+                  control={<Checkbox color="primary" />}
+                  label="Discussion"
+                />
+                <FormControlLabel
+                  value="Lab"
+                  control={<Checkbox color="primary" />}
+                  label="Lab"
+                />
+                <FormControlLabel
+                  value="Reading Heavy"
+                  control={<Checkbox color="primary" />}
+                  label="Reading Heavy"
+                />
+                <FormControlLabel
+                  value="Lecture Heavy"
+                  control={<Checkbox color="primary" />}
+                  label="Lecture Heavy"
+                />
+                <FormControlLabel
+                  value="Paper"
+                  control={<Checkbox color="primary" />}
+                  label="Paper"
+                />
+                <FormControlLabel
+                  value="Group Work"
+                  control={<Checkbox color="primary" />}
+                  label="Group Work"
+                />
+                <FormControlLabel
+                  value="Project Based"
+                  control={<Checkbox color="primary" />}
+                  label="Project Based"
+                />
+                <FormControlLabel
+                  value="Bad Professor"
+                  control={<Checkbox color="primary" />}
+                  label="Bad Professor"
+                />
+                <FormControlLabel
+                  value="Great Professor"
+                  control={<Checkbox color="primary" />}
+                  label="Great Professor"
+                />
+                <FormControlLabel
+                  value="Fun Class"
+                  control={<Checkbox color="primary" />}
+                  label="Fun Class"
+                />
+                <FormControlLabel
+                  value="Boring"
+                  control={<Checkbox color="primary" />}
+                  label="Boring"
+                />
+              </FormGroup>
+            </FormControl>
+          </Row>
+          <Row>
+            <FormControl fullWidth>
+              <InputLabel>Comment</InputLabel>
+              <Input name="comment" onChange={handleChange} />
+            </FormControl>
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="info" onClick={handleClose}>
+            Add Information
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Row style={{ marginTop: "20px" }}>
         <Col xs={{ span: 8, offset: 2 }} style={{ textAlign: "center" }}>
           <h5>{props.description}</h5>
@@ -269,8 +518,6 @@ function getPage(props, classes) {
           return filter_comments(x, props.dd);
         })
         .map(getCommentBox)}
-
-      {console.log("Comment box complete")}
     </div>
   );
 }
